@@ -24,7 +24,7 @@ const NavbarMobile: React.FC<INavbarMobile> = ({
         } transition-transform duration-300`}
       >
         <div className="flex items-center justify-between p-4 text-black border-b">
-          <img src="/public/Logo.svg" alt="" />
+          <img src="/Logo.svg" alt="" />
           <button onClick={() => toggleMenu()}>
             <svg
               width="21"
