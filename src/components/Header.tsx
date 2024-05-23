@@ -13,7 +13,7 @@ const Header: React.FC<IHeader> = ({ setCards, cards, toggleMenu, isDesktop }) =
     <header className="flex items-center justify-center p-4 relative">
       {!isDesktop && (
         <button
-          className="absolute left-0 top-[50%] translate-y-[-50%]"
+          className="absolute left-0 md:left-4 top-[50%] translate-y-[-50%]"
           onClick={(e) => toggleMenu(e)}
         >
           <svg
