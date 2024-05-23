@@ -8,10 +8,18 @@ import { detectDeviceType } from "./utils";
 import NavbarMobile from "./components/NavbarMobile";
 
 const App = () => {
+  const [isDesktop, setIsDesktop] = useState(
+    detectDeviceType() === "desktop" && window.innerWidth > 767
+  );
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openSubitems, setOpenSubitems] = useState<{ [key: string]: boolean }>(
     {}
   );
+  const [isLoading, setIsLoading] = useState(false);
+  const [filteredCards, setFilteredCards] = useState<ICard[]>([]);
+  const cards = useRef<ICard[]>([]);
+
+
 
   const toggleMenu = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e && e.stopPropagation();
@@ -24,11 +32,6 @@ const App = () => {
       [key]: !prevOpenSubitems[key],
     }));
   };
-
-  const isDesktop = detectDeviceType() === "desktop";
-  const [isLoading, setIsLoading] = useState(false);
-  const [filteredCards, setFilteredCards] = useState<ICard[]>([]);
-  const cards = useRef<ICard[]>([]);
 
   const getData = async () => {
     const id = setTimeout(() => setIsLoading(true), 500);
@@ -51,6 +54,19 @@ const App = () => {
     setIsMenuOpen(false);
   };
 
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(detectDeviceType() === "desktop" && window.innerWidth > 767);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     getData();
   }, []);
@@ -62,6 +78,7 @@ const App = () => {
     >
       {isLoading && <Loader />}
       <Header
+        isDesktop={isDesktop}
         toggleMenu={toggleMenu}
         cards={cards.current}
         setCards={setFilteredCards}
@@ -77,7 +94,11 @@ const App = () => {
         />
       )}
       <main className="container">
-        <Cards setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen} cards={filteredCards} />
+        <Cards
+          setIsMenuOpen={setIsMenuOpen}
+          isMenuOpen={isMenuOpen}
+          cards={filteredCards}
+        />
       </main>
     </div>
   );

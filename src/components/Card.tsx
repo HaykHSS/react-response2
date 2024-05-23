@@ -18,11 +18,13 @@ const Card: React.FC<ICardProps> = ({
   setIsMenuOpen,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     isMenuOpen && setIsMenuOpen && setIsMenuOpen(false);
     !isMenuOpen && setIsOpen((prev) => !prev);
   };
+
   useEffect(() => {
     const handleClose = (e: KeyboardEvent | MouseEvent) => {
       if (e.type === "keydown" && (e as KeyboardEvent).key === "Escape") {

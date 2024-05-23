@@ -24,6 +24,7 @@ const Searchbar: React.FC<ISearchbar> = ({ setCards, cards }) => {
   };
 
   const toggleShowSearchbar = () => {setShowSearchbar((prev) => !prev); setCards(cards)};
+  
   return (
     <div className="absolute right-0 sm:right-4 md:right-6 xl:right-8">
       {showSearchbar && (

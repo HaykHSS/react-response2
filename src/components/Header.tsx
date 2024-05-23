@@ -1,15 +1,14 @@
 import { ICard } from "../types";
-import { detectDeviceType } from "../utils";
 import Searchbar from "./Searchbar";
 
 interface IHeader {
   setCards: (cards: ICard[]) => void;
   cards: ICard[];
   toggleMenu: (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  isDesktop: boolean;
 }
 
-const Header: React.FC<IHeader> = ({ setCards, cards, toggleMenu }) => {
-  const isDesktop = detectDeviceType() === "desktop";
+const Header: React.FC<IHeader> = ({ setCards, cards, toggleMenu, isDesktop }) => {
   return (
     <header className="flex items-center justify-center p-4 relative">
       {!isDesktop && (
