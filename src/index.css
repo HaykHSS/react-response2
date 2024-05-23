@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.roboto-regular {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 680px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+      max-width: 880px;
+    }
+  }
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+
+.slide-in-left {
+  animation: slide-in-left 0.3s forwards;
+}
+
+.slide-out-left {
+  animation: slide-out-left 0.3s forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.transition-max-height {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.sticky-menu {
+  transition: top 0.3s ease-in-out;
+}
+.hidden-menu {
+  top: -100px;
+}
+
+
+.circle-before::before {
+  content: "";
+  position: absolute;
+  left: -6.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px; 
+  height: 3px;
+  background-color: #D7D7D7;
+  border-radius: 50%;
+}
