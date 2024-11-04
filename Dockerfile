@@ -1,9 +1,3 @@
-# renovate: datasource=github-releases depName=swaggo/swag
-ARG SWAG_VERSION=v1.16.2          # Renovate will detect and update this version
-
-# renovate: datasource=github-releases depName=vektra/mockery
-ARG MOCKERY_VERSION=v2.34.2       # Renovate will detect and update this version
-
 #####################################################
 ### base
 FROM ${CONTAINER_REPOSITORY}/golang:1.21.1 as base
