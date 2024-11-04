@@ -4,14 +4,14 @@
     "config:recommended"
   ],
   "regexManagers": [
-      {
-        "fileMatch": ["Dockerfile"],
-        "matchStrings": [
-          "RUN go install (?<depName>github\\.com/[^@]+)@(?<currentValue>[^\\s]+)"
-        ],
-        "depNameTemplate": "{{depName}}",
-        "versioningTemplate": "go",
-        "datasourceTemplate": "github-tags"
-      }
-    ]
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": [
+        "RUN go install (?<depName>github\\.com/[^@]+)@(?<currentValue>[^\\s]+)"
+      ],
+      "depNameTemplate": "{{depName | replace('/cmd/swag', '') | replace('/v2', '')}}",
+      "versioningTemplate": "go",
+      "datasourceTemplate": "github-tags"
+    }
+  ]
 }
