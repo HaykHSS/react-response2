@@ -11,7 +11,7 @@ RUN git config --global url."https://${GIT_USER}:${GIT_PAT}@${GIT_URL}/".instead
 
 # Use ARG for Renovate to detect and manage versions
 RUN go install github.com/swaggo/swag/cmd/swag@v1.16.2
-RUN go install github.com/vektra/mockery/v2@v2.34.2
+RUN go install github.com/vektra/mockery/v2@v2.46.3
 
 
 #####################################################
