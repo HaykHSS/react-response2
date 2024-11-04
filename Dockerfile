@@ -1,6 +1,6 @@
 #####################################################
 ### base
-FROM ${CONTAINER_REPOSITORY}/golang:1.21.1 as base
+FROM golang:1.21.1 as base
 ARG GIT_URL
 ARG GIT_USER
 ARG GIT_PAT
