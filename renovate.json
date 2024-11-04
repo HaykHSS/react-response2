@@ -7,20 +7,10 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "RUN go install github\\.com/swaggo/swag/cmd/swag@(?<currentValue>[^\\s]+)"
+        "RUN go install (?<depName>[^@]+)@(?<currentValue>\\S+)"
       ],
-      "depNameTemplate": "github.com/swaggo/swag",
-      "versioningTemplate": "go",
-      "datasourceTemplate": "github-tags"
-    },
-    {
-      "fileMatch": ["Dockerfile"],
-      "matchStrings": [
-        "RUN go install github\\.com/vektra/mockery/v2@(?<currentValue>[^\\s]+)"
-      ],
-      "depNameTemplate": "github.com/vektra/mockery",
-      "versioningTemplate": "go",
-      "datasourceTemplate": "github-tags"
+      "datasourceTemplate": "go",
+      "versioningTemplate": "go"
     }
   ]
 }
