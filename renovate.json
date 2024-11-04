@@ -25,5 +25,8 @@
       "groupName": "Mockery Generator",
       "enabled": true
     }
-  ]
+  ],
+   "docker": {
+      "enabled": true
+    }
 }
