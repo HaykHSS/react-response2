@@ -10,7 +10,13 @@
         "RUN go install (?<depName>[^@]+)@(?<currentValue>\\S+)"
       ],
       "datasourceTemplate": "go",
-      "versioningTemplate": "go"
+      "versioningTemplate": "semver"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["go"],
+      "registryUrls": ["https://proxy.golang.org"]
     }
   ]
 }
