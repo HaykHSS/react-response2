@@ -2,31 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ],
-  "packageRules": [
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["docker.io/library/golang"],
-      "matchCurrentVersion": "1.21.1",
-      "groupName": "Golang Docker ARG",
-      "enabled": true
-    },
-    {
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["swaggo/swag"],
-      "matchCurrentVersion": "v1.16.2",
-      "groupName": "Swaggo Swagger Generator",
-      "enabled": true
-    },
-    {
-      "matchDatasources": ["github-releases"],
-      "matchPackageNames": ["vektra/mockery"],
-      "matchCurrentVersion": "v2.34.2",
-      "groupName": "Mockery Generator",
-      "enabled": true
-    }
-  ],
-   "docker": {
-      "enabled": true
-    }
+  ]
 }

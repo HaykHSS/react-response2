@@ -1,6 +1,3 @@
-# renovate: datasource=docker depName=docker.io/library/golang
-ARG GOLANG_VERSION=1.21.1         # Specify the Go version to be managed by Renovate
-
 # renovate: datasource=github-releases depName=swaggo/swag
 ARG SWAG_VERSION=v1.16.2          # Renovate will detect and update this version
 
@@ -9,7 +6,7 @@ ARG MOCKERY_VERSION=v2.34.2       # Renovate will detect and update this version
 
 #####################################################
 ### base
-FROM ${CONTAINER_REPOSITORY}/golang:${GOLANG_VERSION} as base
+FROM ${CONTAINER_REPOSITORY}/golang:1.21.1 as base
 ARG GIT_URL
 ARG GIT_USER
 ARG GIT_PAT
@@ -19,8 +16,8 @@ RUN go env -w GOPRIVATE="${GIT_URL}/*"
 RUN git config --global url."https://${GIT_USER}:${GIT_PAT}@${GIT_URL}/".insteadOf "https://${GIT_URL}/"
 
 # Use ARG for Renovate to detect and manage versions
-RUN go install github.com/swaggo/swag/cmd/swag@${SWAG_VERSION}
-RUN go install github.com/vektra/mockery/v2@${MOCKERY_VERSION}
+RUN go install github.com/swaggo/swag/cmd/swag@v1.16.2
+RUN go install github.com/vektra/mockery/v2@v2.34.2
 
 
 #####################################################
