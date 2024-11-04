@@ -2,5 +2,16 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "regexManagers": [
+      {
+        "fileMatch": ["Dockerfile"],
+        "matchStrings": [
+          "RUN go install (?<depName>github\\.com/[^@]+)@(?<currentValue>[^\\s]+)"
+        ],
+        "depNameTemplate": "{{depName}}",
+        "versioningTemplate": "go",
+        "datasourceTemplate": "github-tags"
+      }
+    ]
 }
