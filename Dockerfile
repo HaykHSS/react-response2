@@ -10,7 +10,7 @@ RUN go env -w GOPRIVATE="${GIT_URL}/*"
 RUN git config --global url."https://${GIT_USER}:${GIT_PAT}@${GIT_URL}/".insteadOf "https://${GIT_URL}/"
 
 # Use ARG for Renovate to detect and manage versions
-RUN go install github.com/swaggo/swag/cmd/swag@v1.16.2
+RUN go install github.com/swaggo/swag/cmd/swag@v1.16.4
 RUN go install github.com/vektra/mockery/v2@v2.34.2
 
 
