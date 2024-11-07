@@ -1,6 +1,6 @@
 #####################################################
 ### base
-FROM golang:1.21.1 as base
+FROM golang:1.23.3 as base
 ARG GIT_URL
 ARG GIT_USER
 ARG GIT_PAT
